@@ -9,7 +9,7 @@
   with_items:
     -
       question: newrelic-php5/application-name
-      answer: "{{ newrelic_php_name }}"
+      answer: "{{ ansible_hostname }}_php"
     -
       question: newrelic-php5/license-key
       answer: "{{ newrelic_license_key }}"
@@ -30,7 +30,7 @@
     state: present
     create: yes
   notify:
-    - restart apache
+ #   - restart apache
   tags: newrelic
 
 - name: ensure newrelic-daemon is started
@@ -61,3 +61,4 @@
     mode: "0644"
   notify:
     - restart php5-fpm
+  tags: newrelic

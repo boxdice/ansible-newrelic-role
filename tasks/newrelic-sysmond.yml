@@ -8,15 +8,15 @@
     cache_valid_time: 3600
   tags: newrelic
 
-- name: add new relic apt repository
-  apt_repository:
-    repo: "{{ newrelic_apt_repository }}"
-    state: present
-  tags: newrelic
-
 - name: add new relic key
   apt_key:
     url: "https://download.newrelic.com/{{ newrelic_apt_key }}.gpg"
+    state: present
+  tags: newrelic
+
+- name: add new relic apt repository
+  apt_repository:
+    repo: "{{ newrelic_apt_repository }}"
     state: present
   tags: newrelic
 
