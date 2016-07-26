@@ -39,8 +39,8 @@
   lineinfile:
     state: present
     create: yes
-    line: "license_key={{ newrelic_license_key }}"
-    dest: /etc/newrelic/newrelic_key.cfg
+    line: "license_key: {{ newrelic_license_key }}"
+    dest: /etc/newrelic/newrelic_key.yml
   tags: newrelic
 
 - name: ensure newrelic-sysmond is started
