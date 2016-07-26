@@ -38,6 +38,7 @@
 - name: write new relic free license key into Deploy-Scripts readabable file
   lineinfile:
     state: present
+    create: yes
     line: "license_key={{ newrelic_license_key }}"
     dest: etc/newrelic/newrelic_key.cfg
   tags: newrelic
