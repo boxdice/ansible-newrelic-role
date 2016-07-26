@@ -1,14 +1,14 @@
 ---
 
 # override this with the license key
-# newrelic_license_key: ""
+#newrelic_license_key: ""
 newrelic_apt_repository: "deb http://apt.newrelic.com/debian/ newrelic non-free"
 newrelic_apt_key: 548C16BF
 
 # set to true to install the newrelic-php5 package
-newrelic_php_install: false
+newrelic_php_install: true
 # name for php application in newrelic
-newrelic_php_name: ""
+newrelic_php_name: "dep-1"
 
 # used to restart the "parent" server for php applications [TODO]
 # newrelic_php_webserver: apache

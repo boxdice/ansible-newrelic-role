@@ -52,3 +52,12 @@
   when: check_monit.stat.exists and newrelic_php_install
   tags: newrelic
 
+- name: create and set  newrelic.ini
+  template:
+    src: newrelic.ini
+    dest: /etc/php5/fpm/conf.d
+    owner: root
+    group: root
+    mode: "0644"
+  notify:
+    - restart php5-fpm
