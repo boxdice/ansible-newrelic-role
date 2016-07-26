@@ -39,7 +39,7 @@
   lineinfile:
     state: present
     create: yes
-    line: "license_key: {{ newrelic_license_key }}"
+    line: "license_key: \"{{ newrelic_license_key }}\""
     dest: /etc/newrelic/newrelic_key.yml
   tags: newrelic
 
