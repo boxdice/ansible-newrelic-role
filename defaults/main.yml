@@ -1,7 +1,7 @@
 ---
 
 # override this with the license key
-newrelic_license_key: ""
+# newrelic_license_key: ""
 newrelic_apt_repository: "deb http://apt.newrelic.com/debian/ newrelic non-free"
 newrelic_apt_key: 548C16BF
 
