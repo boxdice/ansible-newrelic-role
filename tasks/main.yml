@@ -1,6 +1,13 @@
 ---
 # Install newrelic server monitoring tool
 
+- name: "newrelic_setup/tasks"
+  debug:
+    var: prologue
+  when: prologue is defined
+  tags:
+    - prolog
+
 - include: newrelic-sysmond.yml
 
 - include: newrelic-php5.yml
