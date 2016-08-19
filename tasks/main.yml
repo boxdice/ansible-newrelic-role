@@ -3,7 +3,7 @@
 
 - name: "newrelic_setup/tasks"
   debug:
-    var: prologue
+    msg: "{{ prologue.split('\n') }}" 
   when: prologue is defined
   tags:
     - prolog
