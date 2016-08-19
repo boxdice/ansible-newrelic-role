@@ -35,6 +35,13 @@
     dest: /etc/newrelic/nrsysmond.cfg
   tags: newrelic
 
+- name: set new relic FQDN for process
+  lineinfile:
+    regexp: "hostname="
+    line: "hostname={{ ansible_fqdn }}"
+    dest: /etc/newrelic/nrsysmond.cfg
+  tags: newrelic
+
 - name: write new relic free license key into Deploy-Scripts readabable file
   lineinfile:
     state: present
@@ -43,10 +50,10 @@
     dest: /etc/newrelic/newrelic_key.yml
   tags: newrelic
 
-- name: ensure newrelic-sysmond is started
+- name: ensure newrelic-sysmond is reloaded
   service:
     name: newrelic-sysmond
-    state: started
+    state: restarted
   tags: newrelic
 
 - name: check if monit conf.d path exists
