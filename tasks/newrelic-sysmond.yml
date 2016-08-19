@@ -35,14 +35,7 @@
     dest: /etc/newrelic/nrsysmond.cfg
   tags: newrelic
 
-- name: set new relic FQDN for process
-  lineinfile:
-    regexp: "hostname="
-    line: "hostname={{ ansible_fqdn }}"
-    dest: /etc/newrelic/nrsysmond.cfg
-  tags: newrelic
-
-- name: write new relic free license key into Deploy-Scripts readabable file
+ name: write new relic free license key into Deploy-Scripts readabable file
   lineinfile:
     state: present
     create: yes
