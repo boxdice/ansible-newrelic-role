@@ -10,5 +10,7 @@
 
 - include: newrelic-sysmond.yml
 
+# The PHP newrelic components are only installed if explicitly
+# set in the play
 - include: newrelic-php5.yml
-  when: newrelic_php_install
+  when: newrelic_php_install == True
