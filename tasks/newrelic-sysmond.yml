@@ -11,6 +11,7 @@
 - name: add new relic key
   apt_key:
     url: "https://download.newrelic.com/{{ newrelic_apt_key }}.gpg"
+    keyring: "{{ newrelic_keyring_path }}"
     state: present
   tags: newrelic
 
@@ -33,6 +34,14 @@
     regexp: "license_key="
     line: "license_key={{ newrelic_license_key }}"
     dest: /etc/newrelic/nrsysmond.cfg
+  tags: newrelic
+
+- name: remove old newrelic_key
+  lineinfile:
+    state: absent
+    create: yes
+    line: "license_key:"
+    dest: /etc/newrelic/newrelic_key.yml
   tags: newrelic
 
 - name: write new relic free license key into Deploy-Scripts readabable file

@@ -2,7 +2,8 @@
 
 # override this with the license key
 #newrelic_license_key: ""
-newrelic_apt_repository: "deb http://apt.newrelic.com/debian/ newrelic non-free"
+newrelic_keyring_path: "/etc/apt/trusted.gpg.d/newrelic-keyring.gpg"
+newrelic_apt_repository: "deb [signed-by={{ newrelic_keyring_path }}]  http://apt.newrelic.com/debian/ newrelic non-free"
 newrelic_apt_key: 548C16BF
 
 # set to true to install the newrelic-php5 package
